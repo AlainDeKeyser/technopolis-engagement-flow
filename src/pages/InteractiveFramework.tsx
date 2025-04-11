@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FrameworkForm from "@/components/FrameworkForm";
+import SavedResponses from "@/components/SavedResponses";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -12,6 +13,8 @@ const InteractiveFramework = () => {
   
   const handleSaveResponses = (responses: Record<string, any>) => {
     setSavedResponses(responses);
+    // Scroll to the top to see saved responses
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -39,6 +42,7 @@ const InteractiveFramework = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
+            <SavedResponses responses={savedResponses} />
             <FrameworkForm onSave={handleSaveResponses} />
           </div>
         </div>
