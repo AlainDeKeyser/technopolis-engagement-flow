@@ -1,6 +1,7 @@
 
-import { ArrowDownCircle } from "lucide-react";
+import { ArrowDownCircle, FileInput } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -19,7 +20,10 @@ const Hero = () => {
             Explore Framework
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="#summary">See Summary</a>
+            <Link to="/interactive" className="flex items-center gap-2">
+              <FileInput size={18} />
+              Interactive Worksheet
+            </Link>
           </Button>
         </div>
         

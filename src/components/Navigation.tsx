@@ -1,7 +1,8 @@
 
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileInput } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navigation = () => {
     <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm border-b">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-xl font-bold text-primary">Technopolis</span>
+          <Link to="/" className="text-xl font-bold text-primary">Technopolis</Link>
           <span className="hidden md:inline-block text-sm text-muted-foreground">Innovation Framework</span>
         </div>
         
@@ -29,7 +30,12 @@ const Navigation = () => {
           <a href="#summary" className="text-sm font-medium hover:text-primary transition-colors">
             Summary
           </a>
-          <Button variant="outline">Get Started</Button>
+          <Button variant="outline" asChild>
+            <Link to="/interactive">
+              <FileInput size={16} className="mr-2" />
+              Interactive Worksheet
+            </Link>
+          </Button>
         </div>
         
         {/* Mobile Menu Button */}
@@ -64,7 +70,12 @@ const Navigation = () => {
           >
             Summary
           </a>
-          <Button className="mt-2">Get Started</Button>
+          <Button className="mt-2" asChild>
+            <Link to="/interactive" onClick={() => setIsMenuOpen(false)}>
+              <FileInput size={16} className="mr-2" />
+              Interactive Worksheet
+            </Link>
+          </Button>
         </div>
       )}
     </nav>
